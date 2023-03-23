@@ -1,0 +1,179 @@
+.question {
+    margin: 1% auto;
+    position: relative;
+    min-width: 600px;
+    width: 35vw;
+    max-width: 700px;
+    height: 200px;
+
+    --anim-time: 1s;
+}
+
+.question p {
+    position: absolute;
+    left: 0;
+    right: 0px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+
+    width: 100%;
+    height: fit-content;
+
+    padding: 0 7%;
+    word-wrap: break-word;
+    text-align: left;
+    color: white;
+    font-size: 26px;
+
+    z-index: 100;
+}
+
+.question .box {
+    --perspective: 150px;
+    --color: #111;
+
+    position: absolute;
+    width: var(--width);
+    height: fit-content;
+    background-color: var(--color);
+    width: 110%;
+    min-height: 100%;
+    z-index: 20;
+    translate: -15%;
+    transform: perspective(var(--perspective)) rotateX(0deg) rotateY(-6deg) skewX(10deg) skewY(0deg);
+    animation: warp2 .8s calc(var(--index) * 1s) ease-in-out infinite reverse;
+
+
+}
+
+
+
+.question .box.outer {
+    --perspective: 152px;
+
+
+    scale: 1.05 1.1;
+}
+
+
+.question .arrow {
+    --perspective: 20px;
+
+
+    --color: #111;
+
+    margin: 0;
+
+    position: absolute;
+    width: 0;
+    height: 0;
+
+    border-top: var(--height) solid transparent;
+    border-bottom: var(--height) solid transparent;
+    border-left: var(--width) solid var(--color);
+
+
+
+
+
+    z-index: 10;
+
+    animation: warp .8s ease-in-out infinite reverse;
+
+}
+
+.question .arrow.outer {
+    scale: 1.2 1.6;
+    translate: 0;
+    z-index: 0;
+}
+
+.question .outer {
+    --color: white;
+    z-index: 0;
+
+
+}
+
+#one {
+    --perspective: 40px;
+    rotate: 215deg;
+    --height: 23px;
+    --width: 107px;
+    left: -194px;
+    bottom: 30px;
+
+}
+
+#two {
+    --perspective: 40px;
+    rotate: 110deg;
+    --height: 43px;
+    --width: 101px;
+    left: -145px;
+    bottom: -5px;
+
+}
+
+#three {
+    --perspective: 60px;
+    rotate: 220deg;
+    --height: 35px;
+    --width: 180px;
+    left: -145px;
+    bottom: 30px;
+}
+
+
+/* Phones ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+    .question {
+        translate: -22.5vw 3vh;
+        scale: .42;
+        max-width: 100%;
+    }
+
+    .question p{
+        font-size: 30px;
+    }
+
+}
+
+/* Tablet (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {}
+
+/* Tablet (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {}
+
+
+
+@keyframes warp2 {
+
+    0%,
+    100% {
+        transform: perspective(var(--perspective)) rotateX(0deg) rotateY(-6deg) skewX(10deg) skewY(0deg);
+
+    }
+
+    20% {
+        transform: perspective(var(--perspective)) rotateX(0deg) rotateY(-6deg) skewX(12deg) skewY(.1deg);
+
+    }
+
+    40% {
+        transform: perspective(var(--perspective)) rotateX(0deg) rotateY(-6deg) skewX(7deg) skewY(-.1deg);
+
+    }
+
+    60% {
+        transform: perspective(var(--perspective)) rotateX(0deg) rotateY(-6deg) skewX(11deg) skewY(.1deg);
+
+    }
+
+    80% {
+        transform: perspective(var(--perspective)) rotateX(0deg) rotateY(-6deg) skewX(6deg) skewY(-0.2deg);
+
+    }
+}

@@ -1,38 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@1,700&family=Montserrat:ital,wght@1,600;1,900&display=swap');
+
 .App {
-  text-align: center;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  background-color:  #3339;
+  overflow-y: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.date{
+  position: fixed;
+  z-index: 1000;
+  left: 8vw;
+  top: 8vh;
+
+  font-size: 72px;
+  text-align: left;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.stroke{
+  color: black;
+  -webkit-text-stroke: 22px black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#day{
+  display: inline-block;
+  transform: rotate(-3deg);
+
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+#month{
+  display: inline-block;
+  transform: rotate(5deg);
+
+  font-family: 'IBM Plex Serif', serif;
+  font-weight: 700;
+
+}
+
+.background{
+  position: fixed;
+  z-index: -1000;
+  top:20;
+  width: 100%;
+}
+
+.card {
+  margin: 5% 0;
+  max-width: 100vw;
+  height: fit-content;
+  
+}
+
+.cardList{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 60vw;
+  min-height: 100%;
+  height: 100%;
+  padding-top: 25vh;
+  padding-bottom: 5vh;
+  overflow: scroll;
+  box-sizing: border-box;
 }
 
-.App-link {
-  color: #61dafb;
+.button{
+  --offset: 10%;
+  position: fixed;
+  top:45%;
+
+  padding: 10px 30px;
+  background-color: red;
+  border: black 9px solid;
+  font-size: 28px;
+  font-weight: 800;
+
+  user-select: none;
+  cursor: pointer;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.button:hover{
+  scale: 1.3;
+  transition: scale .3s;
+}
+
+
+.right{
+  transform: perspective(200px) rotateY(-20deg);
+  right: var(--offset);
+}
+
+.left{
+  transform: perspective(200px) rotateY(20deg);
+  left: var(--offset);
+}
+
+/* Phones ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+  .right{
+    right: -3vw;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .left{
+    left: -3vw;
   }
+
+  .date{
+    scale: .8;
+    top: 5vh;
+    left: auto;
+    right: auto;
+  }
+
+  .background{
+    position:fixed;
+    width: auto;
+    height: 100%;
+    margin-left: -25%;
+  }
+
+  figure{
+    overflow: hidden;
+}
+  .card {
+    margin-top: 10px;
+    padding: 0;
+    height: 35vh;
+    max-width: 100vw;
+    
+    
+  }
+
+  .cardList{
+    margin-top: 0;
+    max-width: 100vw;
+    width: 100vw;
+    padding-top: 15vh;
+
+
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+  }
+
+
+  .button{
+    top: 7vh;
+    scale: .7;
+    z-index: 2001;
+  }
+
+  .button:hover{
+    scale: .7;
+  }
+
+}
+/* Tablet (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+
+  
+
+}
+
+/* Tablet (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+
 }

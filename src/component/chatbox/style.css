@@ -1,0 +1,204 @@
+
+.chat {
+    margin: 10% auto;
+    position: relative;
+    min-width: 200px;
+    max-width: 800px;
+    scale: .8;
+
+    transform: rotateZ(8deg) ;
+    
+    --anim-time: 1s;
+}
+
+#small{
+    position: absolute;
+
+    scale: .65;
+    transform: rotateY(190deg) rotate(25deg);
+    margin: -7% -30%;
+    z-index: 2000;
+}
+
+#small p{
+    transform: rotateY(180deg);
+}
+
+
+.chat p {
+    position: absolute;
+    left: 0;
+    right: 0px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+
+    width: fit-content;
+    max-width: 800px;
+    height: fit-content;
+
+    padding: 0 20px;
+    word-wrap: break-word;
+    color: black;
+    font-size: 30px;
+    font-weight: 600;
+
+    z-index: 100;
+}
+
+.chat .box{
+    --perspective: calc(var(--width)/3);
+    --color: white;
+    position: absolute;
+    width: var(--width);
+    height: fit-content;
+    background-color: var(--color);
+    width: 100%;
+    min-height: 100%;
+    translate: 12% 0px;
+    z-index: 20;
+
+    
+    animation: warp calc(var(--anim-time)) ease-in-out infinite reverse;
+}
+
+
+
+.chat .box.outer {
+    --perspective: calc(var(--width)/4);
+
+    translate: 15% 5%;
+    scale: 1.05 1.4;
+}
+
+
+.chat .arrow {
+    --perspective: 15px;
+
+    --height: 20px;
+    --width: 85px;
+    --color: white;
+
+    margin: 0;
+    right: calc(var(--width) * -.95);
+    bottom: calc(var(--height) *-1);
+    position: absolute;
+    width: 0;
+    height: 0;
+
+    border-top: var(--height) solid transparent;
+    border-bottom: var(--height) solid transparent;
+    border-left: var(--width) solid var(--color);
+
+
+    z-index: 10;
+
+    animation: warp calc(var(--anim-time)) ease-in-out infinite reverse;
+
+}
+
+.chat .arrow.outer{
+    --perspective: 14px;
+
+    scale: 1.3 1.5;
+    translate: 5%;
+    z-index: 0;
+}
+
+.chat .outer{
+    --color:black;
+    z-index: 0;
+
+    animation: warp calc(var(--anim-time)) ease-in-out infinite reverse;
+}
+
+/* Phones ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+    
+
+    .chat:not(#small){
+        scale: .55;
+
+        margin: 10% 0;
+        translate: calc(50vw - (var(--width)/2));
+
+
+        margin-bottom: 200px;
+
+    }
+    .chat p{
+        font-size: 25px;
+    }
+
+    
+
+    #small{
+        scale: .9;
+        
+    }
+
+}
+/* Tablet (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+
+}
+
+/* Tablet (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+
+}
+
+@keyframes grow{
+    0%{
+        scale:.9;
+    }
+    100%{
+        scale:1.25;
+    }
+}
+
+
+@keyframes warp {
+    0%, 100%{
+        transform: perspective(var(--perspective)) rotateX(0) rotateY(8deg) skewX(-10deg) skewY(0);
+    }
+    20%{
+        transform: perspective(var(--perspective)) rotateX(-5deg) rotateY(7.5deg) skewX(-20deg) skewY(-1deg);
+    }
+    40%{
+        transform: perspective(var(--perspective)) rotateX(-5deg) rotateY(7.5deg) skewX(-8deg) skewY(-1deg);
+    }
+    60%{
+        transform: perspective(var(--perspective)) rotateX(-2deg) rotateY(8deg) skewX(-10deg) skewY(0);
+    }
+    80%{
+        transform: perspective(var(--perspective)) rotateX(-4deg) rotateY(8.5deg) skewX(-12deg) skewY(1deg);
+    }
+}
+
+
+
+/*
+
+0%, 100%{
+        transform: rotateX(0) rotateY(5deg) skewX(-15deg);
+    }
+    25%{
+        transform: skewX(calc(2 * var(--threshold))) skewY(calc(1 * var(--threshold))) rotateX(calc(8*var(--threshold)));
+    }
+    50%{
+        transform: skewX(calc(-3 * var(--threshold))) skewY(calc(1.25 * var(--threshold))) rotateX(calc(3*var(--threshold)));
+    }
+    75%{
+        transform: skewX(calc(-8 * var(--threshold))) skewY(0deg) rotateX(calc(-8*var(--threshold)));
+    }
+
+    */
