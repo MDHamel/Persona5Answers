@@ -127,19 +127,24 @@
 
 
 /* Phones ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) {
 
     .question {
-        translate: -22.5vw 3vh;
-        scale: .42;
-        max-width: 100%;
+        translate: -12%;
+        scale: .45;
+
+        width: 140vw;
+        max-width: auto;
+        min-width: 400px;
+
     }
 
-    .question p{
+    .question p {
         font-size: 30px;
     }
 
 }
+
 
 /* Tablet (landscape) ----------- */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {}

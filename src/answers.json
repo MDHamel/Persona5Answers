@@ -178,7 +178,7 @@
         ],
         "20": [
             {
-                "question": "Assist Ann: One of these has minor metals in it, right?",
+                "question": "One of these has minor metals in it, right?",
                 "answer": "Smartphone"
             }
         ],
@@ -216,12 +216,12 @@
         ],
         "7": [
             {
-                "question": "Assist Ann: So Tanabata’s about gods crossing a starry sky to reunite once every year. It might have something to do with... ?",
+                "question": "So Tanabata’s about gods crossing a starry sky to reunite once every year. It might have something to do with... ?",
                 "answer": "The Milky Way"
             },
             {
-                "question": "Traditional food",
-                "answer": "Soumen’s noodles"
+                "question": "Sof if the traditional food is something inspired by the Milky Way ...",
+                "answer": "Soumen noodles"
             }
         ],
         "9": [
