@@ -249,6 +249,9 @@ and (max-device-width : 480px) {
     text-align: center;
     
   }
+  .stroke #month {
+    margin-left: -4px;
+  }
 
   .stroke{
     width: 100%;

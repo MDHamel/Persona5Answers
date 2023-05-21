@@ -36,7 +36,7 @@ function App() {
   useEffect(() => {
     const handleScroll = () => {
       const div = scrollDivRef.current;
-      setIfEndOfPage(div.scrollHeight - div.scrollTop - div.clientHeight <= 300);
+      setIfEndOfPage(div.scrollHeight - div.scrollTop - div.clientHeight <= 200);
       console.log(div.scrollHeight - div.scrollTop <= div.clientHeight);
     };
 
@@ -99,24 +99,23 @@ function App() {
 
     //day width is more dynamic than the month widths which seem to only be 2 values. 
     //Its a good idea to try find a size that will fit just the current value.
-    const [dayWidth, setDayWidth] = useState(0);
+    const [dayWidth, setDayWidth] = useState("");
 
     useEffect(()=>{
-      console.log(`${dayRef.current.offsetWidth}`)
       if(dayWidth !== `${dayRef.current.offsetWidth}px`)
         setDayWidth(`${dayRef.current.offsetWidth}px`);
-    }, [dayIndex])
+    }, [dayIndex, dayRef])
 
     return (
       <aside className="date" >
-        <span className="content" id="day" ref={dayRef} style={{visibility:"hidden", position:"fixed", width:"auto", padding: "2px"}}>{days[dayIndex]}</span>
+        <span className="content" id="day" ref={dayRef} style={{visibility:"hidden", position:"fixed", width:"fit-content", padding: "8px"}}>{days[dayIndex]}</span>
         <div className="stroke">
           
           <span id="month" className="content" style={{width: months[monthIndex] > 9 ? "92px" : "48px"}}>
             {months[monthIndex]}
           </span>
           <span className="slash">/</span>
-          <span id="day" className="content" onChange={handleDayChange} style={{width: dayWidth || "fit-content"}}>
+          <span id="day" className="content" onChange={handleDayChange} style={{width: dayWidth || "165px"}}>
             {days[dayIndex]}
           </span>
         </div>
@@ -139,7 +138,7 @@ function App() {
           className="content"
           value={days[dayIndex]}
           onChange={handleDayChange}
-          style={{width: dayWidth || "fit-content"}}
+          style={{width: dayWidth || "165px"}}
         >
           {days.map((day, index) => (
             <option key={index} value={day}>
